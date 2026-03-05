@@ -9,8 +9,9 @@ public class ContactService {
     public void processForm(ContactForm form) {
         Logger.log("Validando formulario...");
 
-        if (Validator.validateEmail(form.getEmail())) {
-            Logger.log("Email es válido!");
+        if (!Validator.validateEmail(form.getEmail())) {
+            Logger.log("Error: email inválido!");
+            return;
         }
 
         Logger.log("Procesando formulario para: " + form.getName());
